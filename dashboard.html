@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración | Gestión de Productos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- Barra de navegación superior -->
+    <header class="navbar">
+        <h1>Panel Admin - Mi Negocio</h1>
+        <button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
+    </header>
+
+    <main class="dashboard-container">
+        
+        <!-- Sección 1: Formulario para agregar / editar producto -->
+        <section class="card form-section">
+            <h2 id="form-title">Agregar Nuevo Producto</h2>
+            <form id="product-form">
+                <input type="hidden" id="product-id">
+
+                <div class="form-group">
+                    <label for="product-name">Nombre del Producto</label>
+                    <input type="text" id="product-name" placeholder="Ej: Lomito Completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-price">Precio ($)</label>
+                    <input type="number" id="product-price" placeholder="Ej: 8500" min="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-category">Categoría</label>
+                    <select id="product-category" required>
+                        <option value="Comidas">Comidas</option>
+                        <option value="Bebidas">Bebidas</option>
+                        <option value="Postres">Postres</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-image">Ruta o URL de Imagen</label>
+                    <input type="text" id="product-image" placeholder="Ej: ./img/lomito.jpg" required>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" id="save-btn" class="btn-primary">Guardar Producto</button>
+                    <button type="button" id="cancel-btn" class="btn-cancel" hidden>Cancelar Edición</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Sección 2: Lista / Tabla de productos -->
+        <section class="card table-section">
+            <h2>Inventario de Productos</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="products-table-body">
+                        <!-- Se llena dinámicamente desde app.js -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
